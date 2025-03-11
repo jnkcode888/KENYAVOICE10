@@ -129,6 +129,16 @@ function CandidateProfile() {
         <h3>Biography</h3>
         <p>{candidate.bio || "No biography available."}</p>
       </div>
+        <div className="submit-procon-section">
+        <button onClick={toggleProConForm} className="toggle-form-btn">
+          {showProConForm ? 'Cancel' : 'Add Pro or Con'}
+        </button>
+        {showProConForm && (
+          <div className="procon-form-container">
+            <ProConForm candidateId={candidateId} onSubmitted={handleProConSubmitted} />
+          </div>
+        )}
+      </div>
       
       <div className="pros-cons-container">
         <div className="pros-section">
